@@ -11,6 +11,7 @@ from composer.metrics.nlp import (InContextLearningLMAccuracy,
                                   InContextLearningMCExpectedCalibrationError,
                                   InContextLearningMultipleChoiceAccuracy,
                                   InContextLearningQAAccuracy,
+                                  InContextLearningRAGGenerationAccuracy,
                                   LanguageCrossEntropy, LanguagePerplexity)
 from composer.models import ComposerModel
 from torchmetrics import Metric
@@ -29,6 +30,7 @@ class InferenceAPIEvalWrapper(ComposerModel):
             InContextLearningLMAccuracy(),
             InContextLearningMultipleChoiceAccuracy(),
             InContextLearningQAAccuracy(),
+            InContextLearningRAGGenerationAccuracy(),
             InContextLearningLMExpectedCalibrationError(),
             InContextLearningMCExpectedCalibrationError()
         ]

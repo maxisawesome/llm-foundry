@@ -271,6 +271,10 @@ def build_icl_evaluators(
                 icl_cfg.metric_names = ['InContextLearningQAAccuracy']
             elif icl_cfg.icl_task_type == 'code_evaluation':
                 icl_cfg.metric_names = ['InContextLearningCodeEvalAccuracy']
+            elif icl_cfg.icl_task_type == 'rag_generation':
+                icl_cfg.metric_names = [
+                    'InContextLearningRAGGenerationAccuracy'
+                ]
             else:
                 raise ValueError(
                     f'No metric_names defined, unable to build default metrics for icl_task_type={icl_cfg.icl_task_type}.'
@@ -324,7 +328,10 @@ def build_icl_evaluators(
                 pass_at_k=icl_cfg.pass_at_k,
                 generations_per_sample=icl_cfg.num_beams,
                 has_categories=icl_cfg.get('has_categories', False),
-                cot_delimiter=icl_cfg.get('cot_delimiter', ''))
+                cot_delimiter=icl_cfg.get('cot_delimiter', ''),
+                hf_loading_vars=icl_cfg.get('hf_loading_vars', {}),
+                hf_parsing_map=icl_cfg.get('hf_parsing_map', {})
+                )
             if hasattr(
                     icl_cfg,
                     'has_categories') and icl_cfg.has_categories and isinstance(
