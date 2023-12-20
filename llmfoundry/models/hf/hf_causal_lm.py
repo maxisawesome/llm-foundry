@@ -15,6 +15,7 @@ from composer.metrics.nlp import (InContextLearningCodeEvalAccuracy,
                                   InContextLearningLMExpectedCalibrationError,
                                   InContextLearningMCExpectedCalibrationError,
                                   InContextLearningMultipleChoiceAccuracy,
+                                  IFEvalJudge,
                                   InContextLearningQAAccuracy,
                                   InContextLearningLLMAsAJudge,
                                   LanguageCrossEntropy, LanguagePerplexity)
@@ -75,6 +76,7 @@ class ComposerHFCausalLM(HuggingFaceModelWithZLoss):
             InContextLearningQAAccuracy(),
             InContextLearningCodeEvalAccuracy(),
             InContextLearningLLMAsAJudge(),
+            IFEvalJudge(),
             InContextLearningLMExpectedCalibrationError(),
             InContextLearningMCExpectedCalibrationError()
         ]

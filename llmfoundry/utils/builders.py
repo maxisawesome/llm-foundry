@@ -458,6 +458,8 @@ def build_icl_evaluators(
                 icl_cfg.metric_names = ['InContextLearningQAAccuracy']
             elif icl_cfg.icl_task_type == 'code_evaluation':
                 icl_cfg.metric_names = ['InContextLearningCodeEvalAccuracy']
+            elif icl_cfg.icl_task_type == 'ifeval':
+                icl_cfg.metric_names = ['IFEvalJudge']
             else:
                 raise ValueError(
                     f'No metric_names defined, unable to build default metrics for icl_task_type={icl_cfg.icl_task_type}.'

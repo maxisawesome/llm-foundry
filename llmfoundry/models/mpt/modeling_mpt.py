@@ -18,6 +18,7 @@ from composer.metrics import (InContextLearningCodeEvalAccuracy,
                               InContextLearningLMAccuracy,
                               InContextLearningLMExpectedCalibrationError,
                               InContextLearningMCExpectedCalibrationError,
+                              IFEvalJudge,
                               InContextLearningMultipleChoiceAccuracy,
                               InContextLearningQAAccuracy)
 from composer.metrics.nlp import LanguageCrossEntropy, LanguagePerplexity
@@ -953,6 +954,7 @@ class ComposerMPTCausalLM(HuggingFaceModel):
             InContextLearningMultipleChoiceAccuracy(),
             InContextLearningQAAccuracy(),
             InContextLearningCodeEvalAccuracy(),
+            IFEvalJudge(),
             InContextLearningLMExpectedCalibrationError(),
             InContextLearningMCExpectedCalibrationError(),
         ]
