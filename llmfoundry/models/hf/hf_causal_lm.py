@@ -17,7 +17,7 @@ from composer.metrics.nlp import (InContextLearningCodeEvalAccuracy,
                                   InContextLearningMultipleChoiceAccuracy,
                                   IFEvalJudge,
                                   InContextLearningQAAccuracy,
-                                  InContextLearningLLMAsAJudge,
+                                #   InContextLearningLLMAsAJudge,
                                   LanguageCrossEntropy, LanguagePerplexity)
 from composer.utils import dist
 from omegaconf import DictConfig
@@ -75,7 +75,7 @@ class ComposerHFCausalLM(HuggingFaceModelWithZLoss):
             InContextLearningMultipleChoiceAccuracy(),
             InContextLearningQAAccuracy(),
             InContextLearningCodeEvalAccuracy(),
-            InContextLearningLLMAsAJudge(),
+            # InContextLearningLLMAsAJudge(),
             IFEvalJudge(),
             InContextLearningLMExpectedCalibrationError(),
             InContextLearningMCExpectedCalibrationError()

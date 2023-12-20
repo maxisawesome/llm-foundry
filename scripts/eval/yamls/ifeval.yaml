@@ -1,4 +1,4 @@
-max_seq_len: 4096
+max_seq_len: 1024
 seed: 1
 # precision: amp_bf16
 precision: fp32 
@@ -47,7 +47,7 @@ fsdp_config:
 icl_tasks:
 -
   label: ifeval
-  dataset_uri: /mnt/workdisk/max/composer/input_data.jsonl
+  dataset_uri: eval/local_data/ifeval/input_data.jsonl
   num_fewshot: [0]
   icl_task_type: ifeval 
 
