@@ -14,7 +14,7 @@ import torch
 import transformers
 from composer import Trainer
 from composer.loggers import MLFlowLogger
-from composer.utils import dist, get_device, using_torch_2
+from composer.utils import dist, get_device
 from omegaconf import DictConfig
 from omegaconf import OmegaConf as om
 from torch.utils.data import DataLoader
@@ -258,7 +258,7 @@ def test_callback_inits():
 @pytest.mark.parametrize(
     'hf_save_interval,save_interval,max_duration,expected_hf_checkpoints,expected_normal_checkpoints',
     [('3ba', '2ba', '4ba', 2, 2), ('1dur', '2ba', '1ep', 1, 2)])
-@patch('os.cpu_count', MagicMock(return_value=None))
+@patch('os.cpu_count', MagicMock(return_value=1))
 def test_huggingface_conversion_callback_interval(
         tmp_path: pathlib.Path, log_to_mlflow: bool, hf_save_interval: str,
         save_interval: str, max_duration: str, expected_hf_checkpoints: int,
@@ -381,7 +381,7 @@ def test_huggingface_conversion_callback_interval(
 @pytest.mark.parametrize(
     'hf_save_interval,save_interval,max_duration,expected_hf_checkpoints,expected_normal_checkpoints',
     [('1ba', '1ba', '1ba', 1, 1)])
-@patch('os.cpu_count', MagicMock(return_value=None))
+@patch('os.cpu_count', MagicMock(return_value=1))
 def test_huggingface_conversion_callback(
     model: str,
     tmp_path: pathlib.Path,
@@ -497,7 +497,7 @@ def test_huggingface_conversion_callback(
         'drop_last': False,
         'num_workers': 0,
         'pin_memory': False,
-        'prefetch_factor': None if using_torch_2() else 2,
+        'prefetch_factor': None,
         'persistent_workers': False,
         'timeout': 0
     }
