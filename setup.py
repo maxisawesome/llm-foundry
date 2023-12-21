@@ -88,7 +88,7 @@ extra_deps['databricks'] = [
 ]
 
 extra_deps['tensorboard'] = [
-    'mosaicml[tensorboard]>=0.17.1,<0.18',
+    # 'mosaicml[tensorboard]>=0.16.1,<0.17',
 ]
 
 extra_deps['gpu'] = [
