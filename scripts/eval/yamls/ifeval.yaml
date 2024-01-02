@@ -1,4 +1,4 @@
-max_seq_len: 1024
+max_seq_len: 2048
 seed: 1
 # precision: amp_bf16
 precision: fp32 
@@ -45,6 +45,18 @@ fsdp_config:
   limit_all_gathers: True
 
 icl_tasks:
+# -
+#   label: arc_challenge
+#   dataset_uri: eval/local_data/world_knowledge/arc_challenge.jsonl
+#   num_fewshot: [5]
+#   icl_task_type: multiple_choice
+#   continuation_delimiter: "\nAnswer: "
+#   icl_subset_num_batches: 10
+# -
+#   label: triviaqa_sm_sub
+#   dataset_uri: eval/local_data/world_knowledge/triviaqa_sm_sub.jsonl
+#   num_fewshot: [3]
+#   icl_task_type: question_answering
 -
   label: ifeval
   dataset_uri: eval/local_data/ifeval/input_data.jsonl
