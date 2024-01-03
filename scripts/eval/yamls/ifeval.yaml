@@ -59,9 +59,14 @@ icl_tasks:
 #   icl_task_type: question_answering
 -
   label: ifeval
-  dataset_uri: eval/local_data/ifeval/input_data.jsonl
+  dataset_uri: eval/local_data/ift/ifeval.jsonl
   num_fewshot: [0]
   icl_task_type: ifeval 
+-
+  label: mtbench
+  dataset_uri: eval/local_data/ift/mtbench.jsonl
+  num_fewshot: [0]
+  icl_task_type: mtbench 
 
 eval_gauntlet:
   weighting: EQUAL
@@ -70,9 +75,15 @@ eval_gauntlet:
   averages:
     core_average:
     - ift
+    - mtbench
   categories:
   - name: ift
     benchmarks:
     - name: ifeval
+      num_fewshot: 0
+      random_baseline: 0
+  - name: mtb
+    benchmarks:
+    - name: mtbench
       num_fewshot: 0
       random_baseline: 0
