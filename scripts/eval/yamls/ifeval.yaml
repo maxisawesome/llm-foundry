@@ -59,7 +59,7 @@ icl_tasks:
 #   icl_task_type: question_answering
 -
   label: ifeval
-  dataset_uri: eval/local_data/ifeval/input_data.jsonl
+  dataset_uri: eval/local_data/ift/ifeval_small.jsonl
   num_fewshot: [0]
   icl_task_type: ifeval 
 
